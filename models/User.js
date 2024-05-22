@@ -2,17 +2,10 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    firstName: {
+    name:{
       type: String,
       required: true,
-      min: 2,
-      max: 50,
-    },
-    lastName: {
-      type: String,
-      required: true,
-      min: 2,
-      max: 50,
+      max: 12,
     },
     email: {
       type: String,
@@ -23,20 +16,24 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      min: 5,
+      max: 15,
     },
-    picturePath: {
+    image: {
       type: String,
-      default: "",
+      default: "smileblush.png",
     },
-    friends: {
-      type: Array,
-      default: [],
+    role:{
+      type: String,
+      default:"user"
     },
-    location: String,
-    occupation: String,
-    viewedProfile: Number,
-    impressions: Number,
+    tick:{
+      type: Boolean,
+      default: false
+    },
+    isBan:{
+      type: Boolean,
+      default: false
+    }
   },
   { timestamps: true }
 );
